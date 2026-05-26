@@ -403,18 +403,12 @@ section {
     <img src="your-photo.jpg" class="about-visual" alt="Zumbathon"> */
 .about-visual {
     border-radius: 20px;
-    aspect-ratio: 4/3; /* Keeps a 4:3 rectangle shape */
-    background: var(--bg-card);
+    width: 100%;
+    height: 380px;       /* ✏️ change this number to make it taller or shorter */
+    object-fit: cover;
+    object-position: center;
+    display: block;
     border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    letter-spacing: 4px;
-    color: rgba(240,237,232,0.06);
-    position: relative;
-    overflow: hidden;
 }
 
 /* Decorative pink line on the left edge of the about visual */
@@ -1079,4 +1073,22 @@ footer span {
     margin-top: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.hero-ribbon {
+  display: inline-flex;  /* changed from inline-block to inline-flex */
+  align-items: center;
+  gap: 8px;              /* space between the ribbon icon and text */
+}
+
+.countdown-finished {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    padding: 20px;
+    background: rgba(255, 158, 44, 0.1);
+    border: 1px solid rgba(255, 158, 44, 0.2);
+    border-radius: 12px;
 }
