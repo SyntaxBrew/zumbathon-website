@@ -209,7 +209,7 @@ nav {
     font-family: var(--font-heading);
     /* clamp(min, preferred, max) → responsive font size:
         never smaller than 4rem, never larger than 9rem */
-    font-size: clamp(4rem, 8vw, 9rem);
+    font-size: clamp(2.2rem, 7.5vw, 7.5rem);
     line-height: 0.92;    /* Tight line spacing for big display text */
     color: var(--text);
     position: relative;
@@ -934,6 +934,19 @@ footer span {
     .register-box { padding: 40px 24px; }
 
     #hero { background-attachment: scroll; } /* Fixes parallax issues on iOS */
+
+    /* Extra safety optimization for the main header text on phones */
+    #hero h1 {
+        font-size: clamp(2rem, 11vw, 3.5rem); /* Swaps to optimized fluid scale for vertical phone screens */
+        line-height: 1.0;
+        letter-spacing: -0.5px; /* Tightens text spacing slightly on screens with minimal horizontal canvas */
+    }
+    
+    .hero-sub {
+        font-size: 0.95rem; /* Scales down subtitle text so it doesn't push down layout content needlessly */
+        padding: 0 10px;
+    }
+
 }
 
 .photo-card:nth-child(2) {
