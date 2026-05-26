@@ -13,7 +13,7 @@
       - "DM Sans"     → clean readable font used for body text
     ============================================================
   -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -27,7 +27,11 @@
        or replace it with your Google Forms URL.
   ============================================================ -->
   <nav>
-    <div class="nav-logo">ZFC</div>
+    <div class="nav-logo">
+      <img src="Pictures/zumba_logo.png" alt="ZFC Logo">
+      <img src="Pictures/bcef.png" alt="BCEF">
+    </div>
+
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#why">Why Join</a></li>
@@ -35,10 +39,20 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#gear">Gear</a></li>
     </ul>
-    <!-- ✏️ EDIT: Replace href="#register" with your Google Forms link -->
-    <a href="#register" class="btn-nav">Register Now</a>
+
+    <div class="nav-right">
+      <a href="https://www.instagram.com/zfc.zumbathonforcancer/" class="nav-insta" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#register" class="btn-nav">Register Now</a>
+    </div>
   </nav>
 
+  
 
   <!-- ============================================================
        HERO SECTION
@@ -63,12 +77,44 @@
     <h1>ZUMBA<span>THON</span><br>FOR CANCER</h1>
 
     <!-- ✏️ EDIT: Change the subtitle text here -->
-    <p class="hero-sub">Dance. Sweat. Make a difference. Join us for an unforgettable day of Zumba in support of cancer awareness and research.</p>
+    <p class="hero-sub">Dance. Sweat.</p>
 
     <div class="hero-cta">
       <!-- ✏️ EDIT: Replace href with your Google Forms registration link -->
-      <a href="#register" class="btn-primary">Register Now</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScqOqRvBqtT0R3GcwGM94HznsVyW_q-b_wn3Ssnli8nn1FJxw/viewform" class="btn-primary">Register Now</a>
       <a href="#about" class="btn-secondary">Learn More</a>
+    </div>
+  
+    <div class="donation-container">
+      <div class="donation-header">
+        <span class="donation-raised">Raised: <strong id="amount-raised">$0</strong></span>
+        <span class="donation-goal">Goal: <strong id="amount-goal">$5,000</strong></span>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+      <p class="donation-updated">Live updates from BC Cancer Foundation</p>
+    </div>
+
+    <p class="hero-sub">Don't miss the next zumbathon:</p>
+
+    <div class="countdown">
+      <div class="countdown-block">
+        <span id="days">00</span>
+        <label>Days</label>
+      </div>
+      <div class="countdown-block">
+        <span id="hours">00</span>
+        <label>Hours</label>
+      </div>
+      <div class="countdown-block">
+        <span id="minutes">00</span>
+        <label>Minutes</label>
+      </div>
+      <div class="countdown-block">
+        <span id="seconds">00</span>
+        <label>Seconds</label>
+      </div>
     </div>
   </section>
 
@@ -82,20 +128,22 @@
     <div class="info-item">
       <div class="info-label">Date</div>
       <!-- ✏️ EDIT: Replace with actual date -->
-      <div class="info-value">Coming Soon</div>
+      <div class="info-value">June 5, 2026</div>
     </div>
     <div class="info-item">
       <div class="info-label">Location</div>
       <!-- ✏️ EDIT: Replace with actual location -->
-      <div class="info-value">TBA</div>
+      <div class="info-value">Fleetwood Park Secondary<br>
+        Surrey, BC<br>
+    </div>
     </div>
     <div class="info-item">
       <div class="info-label">Hosted by</div>
-      <div class="info-value">ZFC Team</div>
+      <div class="info-value">Elaine Chong</div>
     </div>
     <div class="info-item">
       <div class="info-label">Entry</div>
-      <div class="info-value">Open to All</div>
+      <div class="info-value">Open to All<br>(Walk-ins accepted)</div>
     </div>
   </div>
 
@@ -121,7 +169,7 @@
           <h2 class="section-title">About Zumbathon</h2>
           <!-- ✏️ EDIT: Update this description -->
           <p class="section-body">
-            Zumbathon for Cancer is a high-energy charity dance event that brings our community together to raise awareness and support for cancer research. Led by our teacher and powered by you, it's a day of non-stop Zumba, music, and good vibes — all for an incredible cause.
+            A Zumbathon is a high-energy group fitness event that combines dance and exercise for a fun, community-driven workout. This event brings people together to raise funds and awareness for cancer research and support the BC Cancer Foundation.
           </p>
           <p class="section-body" style="margin-top:16px;">
             Every step you take, every song you dance to, makes a real difference in the fight against cancer.
@@ -202,11 +250,11 @@
       <div class="photos-grid">
 
         <!-- ✏️ REPLACE each of these with real photos -->
-        <div class="photo-card">📸<span class="photo-placeholder">Main photo — replace me</span></div>
-        <div class="photo-card">📸<span class="photo-placeholder">Photo 2</span></div>
-        <div class="photo-card">📸<span class="photo-placeholder">Photo 3</span></div>
-        <div class="photo-card">📸<span class="photo-placeholder">Photo 4</span></div>
-        <div class="photo-card">📸<span class="photo-placeholder">Photo 5</span></div>
+        <div class="photo-card"><img src="Pictures\32942624_web1_230615-SUL-Zumbathon2023-leaders_1.png" alt="Zumbathon photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;"> </div>
+        <div class="photo-card"><img src="Pictures\32942624_web1_230615-SUL-Zumbathon2023-MAIN_1.png" alt="Zumbathon photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;"> </div>
+        <div class="photo-card"><img src="Pictures\32942624_web1_230615-SUL-Zumbathon2023-pose_1.webp" alt="Zumbathon photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;"> </div>
+        <div class="photo-card"><img src="Pictures\Elaine3-Zumbathon.webp" alt="Zumbathon photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;"> </div>
+        <div class="photo-card"><img src="Pictures\zumbathon-event-2024.png" alt="Zumbathon photo" style="width:100%;height:100%;object-fit:cover;object-position:center top;"> </div>
 
       </div>
     </div>
@@ -225,32 +273,49 @@
       <h2 class="section-title">FAQ</h2>
       <div class="faq-list">
 
-        <div class="faq-item">
-          <div class="faq-q">Do I need to know how to dance?</div>
-          <p class="faq-a">Not at all! Zumbathon is for everyone. Just show up, follow along, and have fun.</p>
-        </div>
+  <div class="faq-item">
+    <input type="checkbox" id="faq-1" class="faq-toggle">
+    <label for="faq-1" class="faq-q">Do I need to know how to dance?</label>
+    <div class="faq-content">
+      <p class="faq-a">Not at all! Zumbathon is for everyone. Just show up, follow along, and have fun.</p>
+    </div>
+  </div>
 
-        <div class="faq-item">
-          <div class="faq-q">How do I register?</div>
-          <p class="faq-a">Click the Register button on this page to fill out our Google Form. It only takes a minute.</p>
-        </div>
+  <div class="faq-item">
+    <input type="checkbox" id="faq-2" class="faq-toggle">
+    <label for="faq-2" class="faq-q">How do I register?</label>
+    <div class="faq-content">
+      <p class="faq-a">Click the Register button on this page to fill out our Google Form. It only takes a minute.</p>
+    </div>
+  </div>
 
-        <div class="faq-item">
-          <div class="faq-q">Is there a registration fee?</div>
-          <p class="faq-a">Details on registration and donations will be shared soon. Stay tuned!</p>
-        </div>
+  <div class="faq-item">
+    <input type="checkbox" id="faq-3" class="faq-toggle">
+    <label for="faq-3" class="faq-q">Is there a registration fee?</label>
+    <div class="faq-content">
+      <p class="faq-a">Details on registration and donations will be shared soon. Stay tuned!</p>
+    </div>
+  </div>
 
-        <div class="faq-item">
-          <div class="faq-q">What should I wear?</div>
-          <p class="faq-a">Comfortable athletic wear and sneakers. Wear pink if you have it to show your support!</p>
-        </div>
+  <div class="faq-item">
+    <input type="checkbox" id="faq-4" class="faq-toggle">
+    <label for="faq-4" class="faq-q">What should I wear?</label>
+    <div class="faq-content">
+      <p class="faq-a">Comfortable athletic wear and sneakers. Wear pink if you have it to show your support!</p>
+    </div>
+  </div>
 
-        <div class="faq-item">
-          <div class="faq-q">How can I get ZFC gear?</div>
-          <p class="faq-a">Gear can be ordered through the Google Forms link in the Gear section below.</p>
-        </div>
+  <div class="faq-item">
+    <input type="checkbox" id="faq-5" class="faq-toggle">
+    <label for="faq-5" class="faq-q">How can I get ZFC gear?</label>
+    <div class="faq-content">
+      <p class="faq-a">Gear can be ordered through the Google Forms link in the Gear section below.</p>
+    </div>
+  </div>
 
-      </div>
+</div>
+
+</div>
     </div>
   </section>
 
@@ -261,14 +326,29 @@
   ============================================================ -->
   <section id="gear">
     <div class="container">
-      <div class="gear-inner">
-        <span class="section-tag">Merch</span>
-        <h2 class="section-title">ZFC Gear</h2>
-        <p class="section-body">
-          Rep the cause. Our limited Zumbathon for Cancer gear is available to order — hoodies, shirts, and more. Order yours and wear it proudly on event day and beyond.
-        </p>
-        <!-- ✏️ EDIT: Replace href="#" with your Google Forms gear order link -->
-        <a href="#" class="gear-cta">Order Gear →</a>
+      <div class="gear-inner-dark">
+        <div class="gear-blur-right"></div>
+        <div class="gear-blur-left"></div>
+
+        <div class="gear-content">
+          <div class="gear-tag-row">
+            <span>🛍️</span> ZFC Gear
+          </div>
+          <h2 class="section-title-dark">Get the shirt. Wear the cause.</h2>
+          <p class="section-body-dark">
+            Limited-run ZFC tees, hoodies, and wristbands. 100% of proceeds go to the same cause as the event.
+          </p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETo8T7lrTczzlvzwGzPXCaFvqxfAc1-NwrVs5B32oZuLLaw/viewform" target="_blank" rel="noreferrer" class="gear-btn-dark">
+            Order on Google Forms <span>→</span>
+          </a>
+        </div>
+
+        <div class="gear-visual-grid">
+          <div class="gear-badge badge-pop">TEE</div>
+          <div class="gear-badge badge-sun">HOOD</div>
+          <div class="gear-badge badge-wrist">BAND</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -286,7 +366,7 @@
         <h2 class="section-title">Ready to Dance?</h2>
         <p class="section-body">Sign up now and secure your spot at this year's Zumbathon for Cancer.</p>
         <!-- ✏️ EDIT: Replace href="#" with your Google Forms registration link -->
-        <a href="#" class="btn-primary">Register Now</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScqOqRvBqtT0R3GcwGM94HznsVyW_q-b_wn3Ssnli8nn1FJxw/viewform" class="btn-primary">Register Now</a>
         <p class="register-note">Registration takes less than 2 minutes.</p>
       </div>
     </div>
@@ -299,7 +379,11 @@
   ============================================================ -->
   <footer>
     <p>Made with <span>♥</span> by students &nbsp;·&nbsp; Zumbathon for Cancer &nbsp;·&nbsp; All proceeds go to cancer research</p>
+    <p style="margin-top:10px;">
+      <a href="https://www.instagram.com/zfc.zumbathonforcancer/" target="_blank" style="color:var(--pink); text-decoration:none;">📷 Follow us on Instagram</a>
+    </p>
   </footer>
 
+  <script src="app.js"></script>
 </body>
 </html>

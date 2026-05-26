@@ -32,6 +32,8 @@
     --text-muted: #888480;   /* Dimmer text — used for subtitles, captions */
     --accent:     #FF9E2C;   /* Orange accent — used for labels and tags */
     --border:     rgba(255,255,255,0.07); /* Subtle white border for dark mode */
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
 }
 
 /* ============================================================
@@ -45,7 +47,7 @@ html {
 }
 
 body {
-    font-family: 'DM Sans', sans-serif; /* Default font for all text */
+    font-family: var(--font-body); /* Default font for all text */
     background: var(--bg);              /* Dark background */
     color: var(--text);                 /* Off-white text */
     overflow-x: hidden;                 /* Prevents horizontal scrollbar */
@@ -73,7 +75,7 @@ nav {
 
 /* The "ZFC" logo text in the nav */
 .nav-logo {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1.6rem;
     letter-spacing: 2px; /* Spreads the letters apart slightly */
     color: var(--pink);
@@ -108,7 +110,7 @@ nav {
     border: none;
     padding: 10px 24px;
     border-radius: 100px; /* Very high value = fully rounded pill shape */
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;      /* Shows hand cursor on hover */
@@ -149,7 +151,7 @@ nav {
     /* ── REPLACE YOUR BACKGROUND IMAGE HERE ──
         Change "hero-bg.jpg" to your image file name.
         The image should be in the same folder as index.html. */
-    background-image: url('hero-bg.jpg');
+    background-image: url('Pictures\\Elaine3-Zumbathon.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Remove this line if the image looks odd on mobile */
@@ -165,8 +167,8 @@ nav {
     background: linear-gradient(
     to bottom,
     rgba(13,13,13,0.72) 0%,    /* Dark at top */
-    rgba(13,13,13,0.55) 50%,   /* Slightly lighter in middle */
-    rgba(13,13,13,0.90) 100%   /* Very dark at bottom */
+    rgba(13,13,13,0.55) 0%,   /* Slightly lighter in middle */
+    rgba(13,13,13,0.90) 0%   /* Very dark at bottom */
     );
     z-index: 0;
 }
@@ -204,7 +206,7 @@ nav {
 
 /* Main "ZUMBATHON FOR CANCER" title */
 #hero h1 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     /* clamp(min, preferred, max) → responsive font size:
         never smaller than 4rem, never larger than 9rem */
     font-size: clamp(4rem, 8vw, 9rem);
@@ -228,7 +230,7 @@ nav {
     color: rgba(240,237,232,0.75); /* Slightly dimmed white */
     max-width: 480px;
     line-height: 1.7; /* Comfortable reading line height */
-    margin: 24px auto 40px;
+    margin: 24px auto 20px;
     position: relative;
     z-index: 1;
     animation: fadeUp 0.7s 0.2s ease both;
@@ -252,7 +254,7 @@ nav {
     border: none;
     padding: 16px 40px;
     border-radius: 100px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -275,7 +277,7 @@ nav {
     border: 1.5px solid rgba(240,237,232,0.25);
     padding: 16px 40px;
     border-radius: 100px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
@@ -327,7 +329,7 @@ nav {
 
 /* The actual value e.g. "June 14th" */
 .info-value {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-text);
     font-size: 1.4rem;
     letter-spacing: 1px;
     color: var(--text);
@@ -363,7 +365,7 @@ section {
 
 /* Big section heading */
 .section-title {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     font-size: clamp(2.4rem, 5vw, 3.6rem);
     line-height: 1;
     color: var(--text);
@@ -407,7 +409,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-heading);
     font-size: 3rem;
     letter-spacing: 4px;
     color: rgba(240,237,232,0.06);
@@ -501,7 +503,7 @@ section {
     overflow: hidden; /* Clips the image inside the rounded corners */
     background: var(--bg-card);
     border: 1px solid var(--border);
-    aspect-ratio: 4/3;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -541,9 +543,7 @@ section {
 
 
 /* ============================================================
-    FAQ SECTION
-    A simple list of question + answer pairs.
-    Each pair is separated by a bottom border line.
+    FAQ SECTION (SMOOTH GRID TRANSITION)
 ============================================================ */
 #faq {
     background: var(--bg);
@@ -551,50 +551,97 @@ section {
 
 .faq-list {
     margin-top: 48px;
-    max-width: 680px; /* Keeps text from stretching too wide */
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Clean gap between cards */
 }
 
+/* Outer Accordion Card Structure */
 .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    background: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faq-item:first-child {
-    border-top: 1px solid var(--border);
+/* Hover Accent styling */
+.faq-item:hover {
+    background-color: rgba(255, 255, 255, 0.01);
+    border-color: rgba(232, 24, 90, 0.2);
 }
 
-/* Question text with a pink "Q" badge before it */
+/* 🌟 Open Highlight State: Looks for the checked input inside the card */
+.faq-item:has(.faq-toggle:checked) {
+    background-color: var(--bg-card);
+    border-color: rgba(232, 24, 90, 0.4);
+    box-shadow: 0 8px 28px rgba(232, 24, 90, 0.05);
+}
+
+/* Completely hide the functional checkbox element */
+.faq-toggle {
+    display: none;
+}
+
+/* Clickable Question Header */
 .faq-q {
     font-weight: 600;
     font-size: 1rem;
     color: var(--text);
-    margin-bottom: 10px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     gap: 12px;
+    cursor: pointer;
+    user-select: none; /* Prevents text flash highlighting when clicking quickly */
 }
 
-/* The "Q" badge — created by CSS, no HTML needed */
-.faq-q::before {
-    content: 'Q';
-    background: var(--pink);
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 5px;
-    flex-shrink: 0; /* Prevents badge from shrinking */
-    margin-top: 3px;
+/* Plus/Minus Indicator Setup */
+.faq-q::after {
+    content: '+';
+    color: var(--pink);
+    font-size: 1.4rem;
+    font-weight: 400;
+    transition: transform 0.25s ease;
 }
 
-/* Answer text — indented to align with question */
+/* Rotates the indicator smoothly and updates to minus when checked */
+.faq-toggle:checked + .faq-q::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+/* 🌟 THE SLIDE-DOWN SECRET: Animate CSS Grid Row values from 0 to 1 fraction */
+.faq-content {
+    display: grid;
+    grid-template-rows: 0fr; 
+    transition: grid-template-rows 0.3s ease-in-out;
+}
+
+/* Expands row layout dynamically on click selection */
+.faq-toggle:checked ~ .faq-content {
+    grid-template-rows: 1fr;
+}
+
+/* Inner Text Area */
 .faq-a {
     font-size: 0.95rem;
     font-weight: 300;
     color: var(--text-muted);
     line-height: 1.7;
-    padding-left: 32px; /* Aligns with the question text (past the Q badge) */
+    overflow: hidden; /* Prevents text overflow during animation calculations */
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out, padding-top 0.25s ease-in-out;
+    padding-top: 0;
 }
+
+/* Fades text and applies inner top padding in sync with expand slide */
+.faq-toggle:checked ~ .faq-content .faq-a {
+    opacity: 1;
+    padding-top: 14px;
+}
+
 
 
 /* ============================================================
@@ -635,6 +682,158 @@ section {
     transform: translateY(-2px);
 }
 
+/* ============================================================
+    DARK MODE GEAR SECTION STYLES
+============================================================ */
+
+/* Main card wrapper styled with your template's dark card color */
+.gear-inner-dark {
+    background: var(--bg-card); 
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 40px; /* 2.5rem */
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Ambient backdrop lights */
+.gear-blur-right {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 288px;
+    height: 288px;
+    border-radius: 50%;
+    background: rgba(232, 24, 90, 0.25); /* Subtle pink glow */
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.gear-blur-left {
+    position: absolute;
+    bottom: -80px;
+    left: -40px;
+    width: 288px;
+    height: 288px;
+    border-radius: 50%;
+    background: rgba(255, 158, 44, 0.15); /* Subtle orange glow */
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+/* Text layout controls */
+.gear-content {
+    position: relative;
+    z-index: 2;
+}
+
+.gear-tag-row {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title-dark {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--text);
+    margin-top: 16px;
+}
+
+.section-body-dark {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 16px;
+    line-height: 1.6;
+}
+
+/* Pink gradient CTA button */
+.gear-btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-light) 100%);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    box-shadow: 0 10px 25px rgba(232, 24, 90, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gear-btn-dark:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(232, 24, 90, 0.5);
+}
+
+/* Badge Layout Grid */
+.gear-visual-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* Tilted stylized badges */
+.gear-badge {
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Individual badge variations matching your dark scheme */
+.badge-pop {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-light) 100%);
+    color: #ffffff;
+    transform: rotate(-4deg);
+}
+
+.badge-sun {
+    background: var(--accent); /* Orange accent */
+    color: #0d0d0d;
+    transform: rotate(0deg);
+}
+
+.badge-wrist {
+    background: #222222; /* Sleek dark charcoal variant */
+    color: var(--text);
+    border: 1px solid var(--border);
+    transform: rotate(4deg);
+}
+
+/* Responsive adjustment for phones/tablets */
+@media (max-width: 768px) {
+    .gear-inner-dark {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+        gap: 32px;
+    }
+    .gear-visual-grid {
+        max-width: 320px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
 
 /* ============================================================
     REGISTER SECTION
@@ -741,4 +940,143 @@ footer span {
     .register-box { padding: 40px 24px; }
 
     #hero { background-attachment: scroll; } /* Fixes parallax issues on iOS */
+}
+
+.photo-card:nth-child(2) {
+  grid-column: span 1;
+  height: 310px;
+}
+
+.nav-logo img {
+  height: 48px;        /* How tall the logo appears */
+  width: auto;         /* Width adjusts automatically to keep proportions */
+  display: block;      /* Removes the small gap that appears under images by default */
+  object-fit: contain; /* Makes sure the image isn't stretched or cropped */
+}
+
+/* Makes the logo container a row instead of a column */
+.nav-logo {
+  display: flex;        /* Puts children side by side */
+  align-items: center;  /* Vertically centers both logos */
+  gap: 12px;            /* Space between the two logos */
+}
+
+/* COUNTDOWN TIMER */
+.countdown {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-block {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 80px;
+}
+
+/* The big number */
+.countdown-block span {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: var(--pink);
+  line-height: 1;
+}
+
+/* The label underneath e.g. "Days" */
+.countdown-block label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(240,237,232,0.5);
+  margin-top: 6px;
+}
+
+/* Instagram icon in nav */
+.nav-insta {
+  color: var(--text-muted);   /* Dimmed by default */
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.nav-insta:hover {
+  color: var(--pink);         /* Turns pink on hover */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ============================================================
+    DONATION PROGRESS TRACKER STYLES
+============================================================ */
+.donation-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 32px auto;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 1;
+    text-align: left; /* Aligns text cleanly inside the card */
+}
+
+.donation-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.donation-raised strong {
+    color: var(--pink);
+}
+
+.donation-goal strong {
+    color: var(--text);
+}
+
+/* Outer empty track bar */
+.progress-bar-bg {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    height: 16px;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Inner filling glow bar driven by JavaScript */
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--pink-light) 100%);
+    box-shadow: 0 0 12px rgba(232, 24, 90, 0.6);
+    border-radius: 100px;
+    width: 0%; /* Initial state before JavaScript loads the live total */
+    transition: width 1.5s cubic-bezier(0.1, 0.8, 0.3, 1); /* Smooth crawl animation on load */
+}
+
+.donation-updated {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
